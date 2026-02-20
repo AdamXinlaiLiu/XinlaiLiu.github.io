@@ -1,16 +1,32 @@
 ---
 layout: archive
-title: "Talks and presentations"
+title: "Talks"
 permalink: /talks/
 author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
+{% assign sorted_talks = site.talks | sort: 'date' | reverse %}
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-
-{% endif %}
-
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
+<h2>Conference Talks & Invited Presentations</h2>
+<hr />
+{% assign idx = 0 %}
+{% for post in sorted_talks %}
+  {% if post.section == "conference" or post.section == nil %}
+    {% assign idx = idx | plus: 1 %}
+    {% include archive-single-talk-simple.html talk=post index=idx %}
+  {% endif %}
 {% endfor %}
+
+<h2>Poster and Oral Presentations</h2>
+<hr />
+{% assign idx = 0 %}
+{% for post in sorted_talks %}
+  {% if post.section == "poster" %}
+    {% assign idx = idx | plus: 1 %}
+    {% include archive-single-talk-simple.html talk=post index=idx %}
+  {% endif %}
+{% endfor %}
+
+{% if site.talkmap_link == true %}
+<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
+{% endif %}

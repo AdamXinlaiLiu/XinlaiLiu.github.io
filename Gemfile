@@ -11,3 +11,5 @@ end
 
 gem 'github-pages'
 gem 'connection_pool', '2.5.0'
+gem 'csv'         # required by Jekyll on Ruby 4+
+gem 'bigdecimal'  # required by Liquid on Ruby 4+

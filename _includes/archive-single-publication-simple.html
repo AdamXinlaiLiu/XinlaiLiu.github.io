@@ -1,0 +1,19 @@
+{% comment %}
+  Renders one publication in simple list format:
+  Number. Authors (Year). "Title". Journal. URL (same line). Optional note below.
+  Bold the site author's name (Liu, X.) in the citation.
+{% endcomment %}
+{% assign pub = include.pub %}
+{% assign idx = include.index %}
+{% assign cite = pub.citation | replace: "Liu, X.", "<strong>Liu, X.</strong>" %}
+
+<div class="publication-simple-item" style="margin-bottom: 1.2em;">
+  <p style="margin-bottom: 0.25em;">
+    <strong>{{ idx }}.</strong> {{ cite }}{% if pub.paperurl %} <a href="{{ pub.paperurl }}">{{ pub.paperurl }}</a>{% endif %}
+  </p>
+  {% if pub.note %}
+  <p style="margin: 0.25em 0 0 1.5em; font-size: 0.95em;">
+    {{ pub.note }}
+  </p>
+  {% endif %}
+</div>

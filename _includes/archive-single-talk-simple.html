@@ -1,0 +1,19 @@
+{% comment %}
+  Renders one talk in simple list format (same style as journal papers):
+  Number. Citation. URL (same line). Optional note below.
+  Bold Liu, X. or Liu, L. in the citation.
+{% endcomment %}
+{% assign talk = include.talk %}
+{% assign idx = include.index %}
+{% assign cite = talk.citation | replace: "Liu, X.", "<strong>Liu, X.</strong>" | replace: "Liu, L.", "<strong>Liu, L.</strong>" %}
+
+<div class="talk-simple-item" style="margin-bottom: 1.2em;">
+  <p style="margin-bottom: 0.25em;">
+    <strong>{{ idx }}.</strong> {{ cite }}{% if talk.paperurl %} <a href="{{ talk.paperurl }}">{{ talk.paperurl }}</a>{% elsif talk.link %} <a href="{{ talk.link }}">{{ talk.link }}</a>{% endif %}
+  </p>
+  {% if talk.note %}
+  <p style="margin: 0.25em 0 0 1.5em; font-size: 0.95em;">
+    {{ talk.note }}
+  </p>
+  {% endif %}
+</div>

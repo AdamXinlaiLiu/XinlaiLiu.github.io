@@ -5,32 +5,42 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% if site.author.googlescholar or site.author.researchgate %}
+  <div class="wordwrap">You can also find my publication profiles on {% if site.author.googlescholar %}<a href="{{site.author.googlescholar}}">Google Scholar</a>{% endif %}{% if site.author.googlescholar and site.author.researchgate %} and {% endif %}{% if site.author.researchgate %}<a href="{{site.author.researchgate}}">ResearchGate</a>{% endif %}.</div>
 {% endif %}
+
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<!-- Simple numbered list format per category, sorted by date (newest first) -->
+{% assign sorted_pubs = site.publications | sort: 'date' | reverse %}
 {% if site.publication_category %}
-  {% for category in site.publication_category  %}
+  {% for category in site.publication_category %}
     {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
+    {% assign num = 0 %}
+    {% for post in sorted_pubs %}
       {% if post.category != category[0] %}
         {% continue %}
       {% endif %}
+      {% assign num = num | plus: 1 %}
       {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
+        <h2>{{ category[1].title }}</h2>
+        <hr />
         {% assign title_shown = true %}
       {% endunless %}
-      {% include archive-single.html %}
+      {% include archive-single-publication-simple.html pub=post index=num %}
     {% endfor %}
   {% endfor %}
 {% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+  {% assign num = 0 %}
+  {% for post in sorted_pubs %}
+    {% assign num = num | plus: 1 %}
+    {% include archive-single-publication-simple.html pub=post index=num %}
   {% endfor %}
 {% endif %}
 
+<h2>In Preparation</h2>
+<hr />
+<p>Additional manuscripts are in preparation on topics including blockchain system and trustworthy AI models for battery recycling, game theory for battery recycling supply chains, and global climate innovation assessment.</p>
 
 
