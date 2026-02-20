@@ -7,8 +7,19 @@ author_profile: true
 
 {% include base_path %}
 
+{% assign ongoing = site.portfolio | where: "status", "ongoing" | sort: "date" | reverse %}
+{% assign previous = site.portfolio | where: "status", "previous" | sort: "date" | reverse %}
 
-{% assign sorted_projects = site.portfolio | sort: 'date' | reverse %}
-{% for post in sorted_projects %}
-  {% include archive-single.html %}
-{% endfor %}
+<h2>Ongoing projects and grants</h2>
+<ul style="list-style-type: disc; padding-left: 1.5em;">
+  {% for post in ongoing %}
+  <li style="margin-bottom: 0.5em;">"{{ post.title }}", {{ post.period }}, {{ post.funder }}, {{ post.role }}.</li>
+  {% endfor %}
+</ul>
+
+<h2>Previous projects and grants</h2>
+<ul style="list-style-type: disc; padding-left: 1.5em;">
+  {% for post in previous %}
+  <li style="margin-bottom: 0.5em;">"{{ post.title }}", {{ post.period }}, {{ post.funder }}, {{ post.role }}.</li>
+  {% endfor %}
+</ul>

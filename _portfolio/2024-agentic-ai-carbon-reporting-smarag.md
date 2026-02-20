@@ -2,6 +2,10 @@
 title: "Agentic AI System for Carbon Reporting (SMARAG)"
 collection: portfolio
 date: 2024-12-01
+status: ongoing
+period: "1 January 2024 to present"
+funder: "Cornell University, Systems Engineering"
+role: "Project Manager"
 excerpt: "Project Manager. Cornell Systems Engineering. Led five postgraduate students over one year."
 link: "https://smarag.cee.cornell.edu/"
 ---

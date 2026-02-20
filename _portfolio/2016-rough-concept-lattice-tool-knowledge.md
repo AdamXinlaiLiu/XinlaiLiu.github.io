@@ -2,6 +2,10 @@
 title: "Research on Multi-Scale Tool Knowledge Discovery and Reuse Method Based on Rough Concept Lattice Theory"
 collection: portfolio
 date: 2017-08-01
+status: previous
+period: "1 September 2016 to 31 August 2017"
+funder: "National Natural Science Foundation of China (NSFC)"
+role: "Project Member"
 excerpt: "Project Member. National Natural Science Foundation of China. Sep 2016–Aug 2017."
 link:
 ---

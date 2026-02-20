@@ -2,6 +2,10 @@
 title: "Towards Battery Circularity: Blockchain-Enabled Semantic Traceability and Incentive Design for EV Battery Recycling"
 collection: portfolio
 date: 2026-01-01
+status: ongoing
+period: "2026 (under review)"
+funder: "2026 Request for Joint Research Proposals, Environmental Defense Fund & Cornell Atkinson Center for Sustainability"
+role: "Project Manager"
 excerpt: "Project Manager. 2026 Request for Joint Research Proposals: Environmental Defense Fund & Cornell Atkinson. Under review."
 link:
 ---
